@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EsquemaRespostaRAG",
+  "description": "Esquema JSON obrigatório para validação da resposta estruturada do Cherry Studio com suporte a citações",
+  "type": "object",
+  "required": [
+    "resposta",
+    "confianca",
+    "citacoes"
+  ],
+  "properties": {
+    "resposta": {
+      "type": "string",
+      "description": "Texto da resposta objetiva fornecida pela IA"
+    },
+    "confianca": {
+      "type": "string",
+      "enum": ["alta", "media", "baixa", "sem_informacao"],
+      "description": "Nível de confiança da resposta com base no contexto recuperado"
+    },
+    "citacoes": {
+      "type": "array",
+      "description": "Lista de citações e evidências que suportam a resposta",
+      "items": {
+        "type": "object",
+        "required": [
+          "id_documento",
+          "trecho_apoio"
+        ],
+        "properties": {
+          "id_documento": {
+            "type": "string",
+            "description": "Identificador do documento na base de conhecimento (ex: DOC-COR-01)"
+          },
+          "titulo_documento": {
+            "type": "string",
+            "description": "Título amigável do documento"
+          },
+          "trecho_apoio": {
+            "type": "string",
+            "description": "Trecho exato do documento que suporta a afirmação"
+          },
+          "url_ou_caminho": {
+            "type": "string",
+            "description": "Caminho relativo ou URL do documento de referência"
+          }
+        }
+      }
+    },
+    "observacoes": {
+      "type": "string",
+      "description": "Notas adicionais, inconsistências detectadas ou aviso de ausência de dados"
+    }
+  }
+}
