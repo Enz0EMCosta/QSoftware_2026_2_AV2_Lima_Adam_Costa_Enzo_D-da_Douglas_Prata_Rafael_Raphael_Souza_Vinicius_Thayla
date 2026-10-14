@@ -1,0 +1,1 @@
+# QSoftware_2026_2_AV2_Lima_Adam_Costa_Enzo_D-da_Douglas_Prata_Rafael_Raphael_Souza_Vinicius_Thayla
