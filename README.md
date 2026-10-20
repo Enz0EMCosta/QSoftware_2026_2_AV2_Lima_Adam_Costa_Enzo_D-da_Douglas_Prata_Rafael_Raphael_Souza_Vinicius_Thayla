@@ -32,12 +32,12 @@ Este repositório contém os artefatos de avaliação de qualidade de software d
 │   ├── ficha-da-missao.md                     <- Ficha técnica da missão e recorte avaliado
 │   ├── fluxo-de-dados.md                      <- Fluxograma detalhado da requisição e RAG
 │   └── classificacao-dos-dados.md             <- Matriz de classificação de sensibilidade dos dados
-├── base-de-conhecimento/                      <- Documentos sintéticos/fictícios indexados no RAG
+├── base-de-conhecimento/                      <- Corpus sintético organizado para os ensaios de RAG
 │   ├── README.md                              <- Explicação dos conjuntos de documentos
-│   ├── documentos-corretos/                   <- Documentos sintéticos válidos e factuais
-│   ├── documentos-irrelevantes/               <- Documentos de ruído/distração temática
-│   ├── documentos-conflitantes/               <- Documentos com informações contraditórias
-│   └── documentos-maliciosos/                 <- Payloads de injeção indireta de instruções
+│   ├── documentos-corretos/                   <- DOC-01 (política vigente) e DOC-04 (garantia)
+│   ├── documentos-irrelevantes/                <- DOC-03 (FAQ de entrega)
+│   ├── documentos-conflitantes/                <- DOC-02 (política desatualizada)
+│   └── documentos-maliciosos/                  <- DOC-05 (injeção indireta com canário inofensivo)
 ├── prompts/                                   <- Prompts versionados e experimento comparativo
 │   ├── P1-direto.md                           <- Prompt direto de instrução simples
 │   ├── P2-estruturado.md                      <- Prompt com objetivo, contexto, restrições e formato

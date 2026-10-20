@@ -6,7 +6,8 @@
 
 ## 1. Instruções
 - Insira aqui os arquivos sintéticos/fictícios que contêm as informações corretas e precisas a serem recuperadas pelo RAG.
-- Exemplo de nomenclatura recomendada: `DOC-COR-01-politica.md`, `DOC-COR-02-manual.md`.
+- Os documentos deste corpus usam os IDs `DOC-01` e `DOC-04`; mantenha esses IDs nas referências dos casos de teste.
 
 ## 2. Documentos Disponíveis
-- [PREENCHER LISTA DE ARQUIVOS ADICIONADOS]
+- [`DOC-01-politica-reembolso-v2.md`](./DOC-01-politica-reembolso-v2.md) — política de reembolso vigente.
+- [`DOC-04-manual-garantia.md`](./DOC-04-manual-garantia.md) — informações complementares sobre garantia.

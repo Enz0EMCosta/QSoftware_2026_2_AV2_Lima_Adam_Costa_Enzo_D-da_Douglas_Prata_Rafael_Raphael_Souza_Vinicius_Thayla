@@ -1,45 +1,47 @@
 # Fluxo de Dados: Base de Conhecimento e RAG
 
-> **Propósito:** Mapear o ciclo de vida completo da informação no Cherry Studio, desde a entrada do usuário e injeção de contexto até a geração de resposta, fontes e logs.
+> **Propósito:** Descrever o percurso da pergunta e dos trechos recuperados no recorte avaliado do Cherry Studio, destacando fronteiras de confiança e exposição de dados.
 
 ---
 
-## 1. Tarefa
-Modelar e documentar o fluxo de dados arquitetural do Cherry Studio durante o processamento de consultas RAG na Base de Conhecimento, identificando pontos de controle, injeção de políticas e potenciais vetores de vulnerabilidade.
+## 1. Escopo observado
 
----
+O fluxo documentado é o do chat em modo Agent do Cherry Studio 2.0.13, consultando a Base de Conhecimento e enviando a solicitação ao Gemini Flash-Lite Latest. MCP e busca na web ficam desativados. O diagrama representa o comportamento descrito pela equipe; detalhes internos de busca, composição do prompt, chunking e tratamento das referências não foram auditados no código do aplicativo.
 
-## 2. Análise do Artefato
-
-### 2.1 Diagrama de Fluxo de Dados
+## 2. Diagrama de fluxo de dados
 
 ```mermaid
 flowchart TD
-    A["Usuário (Entrada / Pergunta)"] --> B["Camada de Interface & Políticas do Sistema\n(System Prompt, Diretrizes, Regras)"]
-    B --> C["Mecanismo de Busca / Indexador RAG\n(Base de Conhecimento - Chunks & Embeddings)"]
-    C --> D["Compositor de Contexto\n(Prompt do Sistema + Chunks Recuperados + Pergunta)"]
-    D --> E["Provedor de LLM\n(Inferência do Modelo)"]
-    E --> F{"Ferramentas / Funções Ativas?"}
-    F -- "Sim" --> G["Execução de Ferramentas / APIs"]
-    G --> E
-    F -- "Não" --> H["Pós-Processamento & Validação de Saída\n(JSON Schema, Extração de Citações)"]
-    H --> I["Resposta ao Usuário & Exibição de Fontes"]
-    H --> J["Logs Locais de Auditoria / Histórico"]
+    A["Usuário digita a pergunta"] --> B["Cherry Studio aplica as instruções do assistente / prompt de sistema"]
+    B --> C["Base de Conhecimento pesquisa documentos indexados"]
+    C --> D["Recupera trechos (chunks)<br/>Busca descrita: palavras-chave (BM25) e/ou embeddings"]
+    D --> E["Pergunta + instruções + trechos recuperados<br/>Fronteira de confiança: conteúdo documental não confiável"]
+    E --> F["Envio pela internet à API externa do Google Gemini"]
+    F --> G["Gemini Flash-Lite Latest gera a resposta"]
+    G --> H["Cherry Studio exibe resposta e referências disponíveis"]
+    H --> I["Histórico local do aplicativo"]
+    H --> J["Equipe registra capturas/logs de teste sem credenciais"]
+    K["MCP e busca na web desativados no recorte"] -.-> F
 ```
 
-### 2.2 Descrição das Etapas do Fluxo
-1. **Entrada do Usuário:** Pergunta ou comando submetido na interface do chat.
-2. **Políticas e Pré-prompt:** Aplicação de diretrizes de sistema (*System Prompt*) e limites configurados pelo usuário.
-3. **Mecanismo RAG / Busca de Contexto:** Consulta vetorial/semântica aos documentos sintéticos previamente fatiados (*chunks*) e indexados.
-4. **Composição do Prompt Aumentado:** Montagem do prompt final que agrupa instruções do sistema, contexto documental recuperado e a consulta do usuário.
-5. **Inferência no Modelo (LLM):** Envio da carga útil à API/modelo local para geração de texto ou JSON.
-6. **Ferramentas (se aplicável):** Acionamento de integrações externas para complementação de resposta.
-7. **Pós-processamento e Citações:** Renderização da resposta, mapeamento de referências bibliográficas/fontes e gravação em logs de histórico.
+## 3. Etapas e dados envolvidos
 
----
+1. **Pergunta:** o usuário envia uma consulta pelo chat.
+2. **Instruções:** o aplicativo combina a entrada com as instruções do assistente/prompt de sistema.
+3. **Recuperação:** a Base de Conhecimento pesquisa o corpus cadastrado, previamente dividido em *chunks* e indexado. A equipe descreve a recuperação como busca por palavras-chave (BM25) e/ou embeddings; a configuração efetivamente usada deve ser confirmada no aplicativo.
+4. **Composição do contexto:** a pergunta e os trechos recuperados são incluídos na solicitação. Esse é o principal limite de confiança do recorte: texto de documentos externos pode ser interpretado como instrução pelo modelo se não for tratado como dado não confiável.
+5. **Envio ao provedor:** o contexto é transmitido pela internet à API do Google Gemini. Portanto, somente dados públicos ou sintéticos devem ser usados na Base de Conhecimento.
+6. **Ferramentas:** MCP e busca na web estão desativados; não fazem parte do percurso de execução avaliado.
+7. **Resposta e referências:** a resposta retorna ao Cherry Studio e é apresentada ao usuário com as referências que o aplicativo disponibilizar. A equipe verificará empiricamente se as citações correspondem aos documentos e trechos usados.
+8. **Persistência e evidências:** a conversa fica no histórico local do aplicativo. A equipe registra capturas e logs dos testes, removendo chaves, tokens e outros segredos antes de compartilhar evidências.
 
-## 3. Resultados
-- **Pontos Críticos de Exposição Identificados:**
-  - Injeção Indireta de Prompt: [PREENCHER - ex.: Falha na separação lógica entre instrução e dados nos chunks]
-  - Alucinação de Fontes: [PREENCHER - ex.: Resposta cita documento inexistente ou atribui trecho incorreto]
-- **Observações de Arquitetura:** [PREENCHER]
+## 4. Fronteiras de confiança e pontos de atenção
+
+- **Documentos → contexto do modelo:** documentos sintéticos, públicos, irrelevantes, conflitantes ou maliciosos são conteúdo não confiável. Uma instrução embutida em documento pode tentar influenciar a resposta (injeção indireta).
+- **Aplicativo → provedor externo:** pergunta, instruções e trechos recuperados deixam o computador e são enviados ao provedor. Não inserir dados reais de pacientes, empresas, usuários ou credenciais.
+- **Resposta → usuário:** uma resposta pode conter afirmações sem suporte ou referências imprecisas; conferir cada afirmação contra o trecho citado.
+- **Histórico/evidências:** conversas e capturas podem conter dados da consulta. Usar apenas conteúdo de teste e revisar evidências antes de publicá-las.
+
+## 5. Resultados do mapeamento
+
+O principal risco do fluxo está na composição do contexto: o conteúdo recuperado é enviado junto das instruções e da pergunta, sem que a equipe tenha confirmado uma separação técnica entre dados e instruções. Isso justifica os testes de contexto sob pressão, injeção indireta e auditoria de citações. O diagrama documenta o fluxo esperado/observado, mas não substitui evidências de execução; registrar capturas do aplicativo e a configuração efetiva de recuperação para sustentar os resultados.

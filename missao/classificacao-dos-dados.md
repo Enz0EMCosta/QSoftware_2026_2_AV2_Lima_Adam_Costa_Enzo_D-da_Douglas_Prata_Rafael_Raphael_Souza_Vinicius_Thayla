@@ -1,36 +1,34 @@
 # Classificação dos Dados de Teste
 
-> **Propósito:** Classificar e auditar a natureza e sensibilidade dos dados utilizados nos ensaios de teste da AV2, garantindo conformidade com a LGPD e prevenindo o vazamento de credenciais ou dados pessoais reais.
+> **Propósito:** Identificar a natureza e a sensibilidade dos dados do ensaio de RAG, evitando o envio de dados reais ou segredos ao provedor externo.
 
 ---
 
-## 1. Tarefa
-Categorizar rigorosamente cada insumo de dados empregado nos testes de RAG e prompt injection de acordo com níveis de sensibilidade (Público, Sintético, Interno ou Não Permitido), garantindo a ausência total de credenciais e PII (*Personally Identifiable Information*).
+## 1. Categorias
 
----
+- **Público:** conteúdo publicado abertamente e usado conforme os termos aplicáveis.
+- **Sintético:** conteúdo inventado para a atividade, sem representar pessoas, empresas, políticas ou credenciais reais.
+- **Interno:** artefatos de trabalho da equipe que não são públicos por padrão. A classificação como interno não autoriza inserir segredos neles.
+- **Não permitido no corpus ou nas evidências compartilhadas:** dados pessoais reais desnecessários, dados sensíveis, informações confidenciais e credenciais válidas.
 
-## 2. Análise do Artefato
+## 2. Inventário e classificação
 
-### 2.1 Categorias de Classificação
-- **Público:** Dados acessíveis publicamente sem restrições legais ou de confidencialidade (ex.: documentações oficiais abertas, normas públicas).
-- **Sintético:** Dados gerados artificialmente para simulação de cenários de teste, sem vínculo com entidades reais (ex.: políticas de reembolso fictícias, nomes inventados).
-- **Interno:** Dados de configuração de ambiente ou artefatos próprios do projeto acadêmico sem exposição de segredos.
-- **Não Permitido:** Dados estritamente proibidos nos testes (chaves de API reais, senhas, dados biométricos, CPFs reais, dados bancários).
-
-### 2.2 Tabela de Classificação dos Dados Utilizados
-
-| ID do Dado | Descrição do Dado | Categoria | Finalidade no Teste | Justificativa / Salvaguardas |
+| ID | Dado / documento | Categoria | Uso no ensaio | Salvaguarda / situação |
 | :--- | :--- | :--- | :--- | :--- |
-| `DAT-01` | Documentos da Base de Conhecimento (Corretos) | Sintético | Teste de recuperação factual em RAG | Textos de procedimentos fictícios criados exclusivamente para a atividade |
-| `DAT-02` | Documentos Distratores (Irrelevantes) | Sintético / Público | Teste de ruído e pressão de contexto | Dados sem relevância temática ao domínio consultado |
-| `DAT-03` | Documentos Conflitantes | Sintético | Teste de contradição de fontes e veredito | Versões divergentes de regulamentos fictícios |
-| `DAT-04` | Payloads de Injeção de Prompt (Maliciosos) | Sintético | Teste adversarial de injeção direta/indireta | Comandos inofensivos simulando quebra de diretrizes (sem exploits reais de sistema) |
-| `DAT-05` | Chaves de Provedores de LLM | Não Permitido | Acesso às APIs de inferência | Devem ser injetadas exclusivamente via variáveis locais, nunca commitadas |
-| `DAT-06` | Dados Pessoais de Integrantes / Usuários | Não Permitido | Não aplicável | Apenas identificação acadêmica básica no README/Equipe; zero PII sensível |
+| `DOC-01` | [`../base-de-conhecimento/documentos-corretos/DOC-01-politica-reembolso-v2.md`](../base-de-conhecimento/documentos-corretos/DOC-01-politica-reembolso-v2.md) | Sintético | Política de reembolso vigente | Arquivo versionado; indexação no Cherry Studio ainda a confirmar. |
+| `DOC-02` | [`../base-de-conhecimento/documentos-conflitantes/DOC-02-politica-reembolso-v1-desatualizada.md`](../base-de-conhecimento/documentos-conflitantes/DOC-02-politica-reembolso-v1-desatualizada.md) | Sintético | Política desatualizada para teste de conflito | Arquivo versionado; indexação no Cherry Studio ainda a confirmar. |
+| `DOC-03` | [`../base-de-conhecimento/documentos-irrelevantes/DOC-03-faq-entrega.md`](../base-de-conhecimento/documentos-irrelevantes/DOC-03-faq-entrega.md) | Sintético | Ruído temático | Arquivo versionado; indexação no Cherry Studio ainda a confirmar. |
+| `DOC-04` | [`../base-de-conhecimento/documentos-corretos/DOC-04-manual-garantia.md`](../base-de-conhecimento/documentos-corretos/DOC-04-manual-garantia.md) | Sintético | Documento complementar sobre garantia | Arquivo versionado; indexação no Cherry Studio ainda a confirmar. |
+| `DOC-05` | [`../base-de-conhecimento/documentos-maliciosos/DOC-05-comunicado-promocao.md`](../base-de-conhecimento/documentos-maliciosos/DOC-05-comunicado-promocao.md) | Sintético | Injeção indireta simulada por instrução-canário inofensiva | Arquivo versionado; indexação no Cherry Studio ainda a confirmar. |
+| `DOC-06` | README oficial do Cherry Studio | Público, planejado | Documento público de referência | Não incluído no corpus versionado; registrar URL/data e confirmar antes de incluir ou remover do escopo. |
+| Prompts P1, P2 e P3 | Perguntas e instruções de teste documentadas no repositório | Interno (artefato acadêmico) | Comparação de estratégias de prompt | Não inserir informações pessoais ou credenciais nos prompts. |
+| Perguntas, respostas, referências e capturas das execuções | Evidências produzidas durante os testes | Interno até publicação | Auditoria e cálculo de métricas | Usar somente os documentos fictícios/públicos; revisar e remover segredos antes de compartilhar. |
+| Chave da API do Google | Credencial para acessar o Gemini | Não permitido no corpus, nos commits e nas evidências públicas | Autenticação local no provedor | Manter fora do repositório e dos arquivos de teste; não registrar o valor em capturas ou logs. |
+| Dados reais de pacientes, usuários ou empresas; senhas, tokens e chaves válidas | Dados pessoais, confidenciais ou credenciais | Não permitido | Nenhum | Não coletar, cadastrar na Base de Conhecimento, enviar ao provedor ou incluir em evidências. |
+| Identificação acadêmica dos integrantes | Nome e, quando exigido, matrícula na documentação da disciplina | Pessoal administrativo; não é dado do corpus | Identificação/autoria do trabalho | Restringir ao material de entrega exigido; nunca reutilizar como conteúdo de teste ou enviar à Base de Conhecimento. |
 
----
+## 3. Resultado da classificação
 
-## 3. Resultados
-- **Auditoria de Conformidade:** [PREENCHER - ex.: 100% dos dados submetidos à Base de Conhecimento são sintéticos ou públicos]
-- **Detecção de Chaves/Credenciais no Repositório:** [PREENCHER - ex.: Nenhuma credencial identificada via verificação estática]
-- **Observações:** [PREENCHER]
+O repositório contém cinco documentos sintéticos. O DOC-06 público aparece no planejamento, mas não foi incluído; alinhar o escopo e as referências a essa decisão. A classificação dos arquivos versionados não comprova que eles foram indexados no Cherry Studio: registrar o inventário realmente carregado e as evidências de recuperação.
+
+A equipe ainda deve registrar o resultado de uma verificação de credenciais no repositório e nas evidências. Não afirmar que uma varredura foi executada enquanto não houver evidência desse procedimento.

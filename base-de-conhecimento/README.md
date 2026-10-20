@@ -1,6 +1,6 @@
 # Base de Conhecimento Sintética (RAG)
 
-> **Propósito:** Armazenar e documentar os conjuntos de documentos sintéticos/fictícios indexados na Base de Conhecimento do Cherry Studio para os ensaios de recuperação de informação, pressão de contexto e segurança adversarial.
+> **Propósito:** Armazenar e documentar os conjuntos de documentos sintéticos/fictícios preparados para os ensaios de recuperação de informação, pressão de contexto e segurança adversarial no Cherry Studio.
 
 ---
 
@@ -12,28 +12,29 @@ Estruturar corpus de documentos controlados para alimentar o mecanismo RAG do Ch
 ## 2. Análise do Artefato
 
 ### 2.1 Organização das Subpastas
-Os documentos estão particionados em quatro categorias experimentais:
+Os cinco documentos do corpus sintético estão particionados em quatro categorias experimentais:
 
 | Pasta | Descrição e Finalidade | Tipo de Dado |
 | :--- | :--- | :--- |
-| [`documentos-corretos/`](./documentos-corretos/) | Documentos sintéticos factuais contendo as regras oficiais e verdadeiras da base fictícia. Utilizados para avaliar respostas precisas e citações corretas. | Sintético |
-| [`documentos-irrelevantes/`](./documentos-irrelevantes/) | Documentos contendo ruído temático ou assuntos totalmente desconexos. Utilizados para avaliar a capacidade do RAG de filtrar distrações. | Sintético / Público |
-| [`documentos-conflitantes/`](./documentos-conflitantes/) | Documentos que contradizem intencionalmente as regras dos documentos corretos (ex.: prazos e valores alterados). Utilizados para avaliar a resolução de ambiguidades. | Sintético |
-| [`documentos-maliciosos/`](./documentos-maliciosos/) | Documentos contendo comandos embutidos de *Prompt Injection* indireta (instruções camufladas de quebra de diretrizes do sistema). | Sintético |
+| [`documentos-corretos/`](./documentos-corretos/) | DOC-01 (política de reembolso vigente) e DOC-04 (manual de garantia), para avaliar respostas factuais e citações. | Sintético |
+| [`documentos-irrelevantes/`](./documentos-irrelevantes/) | DOC-03 (FAQ de entrega), para avaliar ruído temático. | Sintético |
+| [`documentos-conflitantes/`](./documentos-conflitantes/) | DOC-02 (política desatualizada), em conflito com DOC-01. | Sintético |
+| [`documentos-maliciosos/`](./documentos-maliciosos/) | DOC-05 (comunicado com instrução-canário inofensiva), para avaliar injeção indireta. | Sintético |
 
 ### 2.2 Inventário dos Documentos da Base de Conhecimento
 
 | Arquivo | Categoria | Descrição do Conteúdo | Status de Indexação no Cherry Studio |
 | :--- | :--- | :--- | :--- |
-| `DOC-COR-01.md` | Correto | [PREENCHER - ex.: Política de reembolso e suporte técnico fictício] | [PREENCHER] |
-| `DOC-COR-02.md` | Correto | [PREENCHER - ex.: Manual de instalação e pré-requisitos] | [PREENCHER] |
-| `DOC-IRR-01.md` | Irrelevante | [PREENCHER - ex.: Artigo sobre cultivo de café no século XIX] | [PREENCHER] |
-| `DOC-CON-01.md` | Conflitante | [PREENCHER - ex.: Versão alternativa da política com prazos divergentes] | [PREENCHER] |
-| `DOC-MAL-01.md` | Malicioso | [PREENCHER - ex.: Texto técnico com payload de injeção indireta oculta] | [PREENCHER] |
+| `DOC-01-politica-reembolso-v2.md` | Correto | Política de reembolso vigente desde 01/03/2026 | Arquivo presente; indexação a confirmar |
+| `DOC-02-politica-reembolso-v1-desatualizada.md` | Conflitante | Versão anterior da política, com prazos e condições divergentes | Arquivo presente; indexação a confirmar |
+| `DOC-03-faq-entrega.md` | Irrelevante | Perguntas frequentes sobre entrega | Arquivo presente; indexação a confirmar |
+| `DOC-04-manual-garantia.md` | Correto / complementar | Manual de garantia dos produtos | Arquivo presente; indexação a confirmar |
+| `DOC-05-comunicado-promocao.md` | Malicioso (injeção simulada) | Comunicado promocional com instrução-canário inofensiva | Arquivo presente; indexação a confirmar |
+| `DOC-06` | Não incluído | README público do Cherry Studio | Planejado, mas não versionado nem confirmado como indexado |
 
 ---
 
 ## 3. Resultados
-- **Total de Documentos no Corpus:** [PREENCHER - ex.: X arquivos]
-- **Tamanho Médio dos Chunks no Cherry Studio:** [PREENCHER]
-- **Observações de Indexação:** [PREENCHER]
+- **Total versionado:** 5 documentos sintéticos.
+- **Tamanho médio dos chunks no Cherry Studio:** Ainda não medido.
+- **Observações de indexação:** A presença dos arquivos no repositório não comprova que foram indexados. Registrar a configuração e evidências do teste de recuperação no aplicativo.

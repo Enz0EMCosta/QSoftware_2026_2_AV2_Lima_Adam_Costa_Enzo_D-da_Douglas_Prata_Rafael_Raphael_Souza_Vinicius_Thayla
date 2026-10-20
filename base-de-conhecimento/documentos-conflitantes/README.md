@@ -6,7 +6,7 @@
 
 ## 1. Instruções
 - Insira aqui documentos com dados conflitantes (ex.: prazos alterados, valores contraditórios).
-- Exemplo de nomenclatura recomendada: `DOC-CON-01-politica-divergente.md`.
+- O documento deste corpus usa o ID `DOC-02`; mantenha esse ID nas referências dos casos de teste.
 
 ## 2. Documentos Disponíveis
-- [PREENCHER LISTA DE ARQUIVOS ADICIONADOS]
+- [`DOC-02-politica-reembolso-v1-desatualizada.md`](./DOC-02-politica-reembolso-v1-desatualizada.md) — versão anterior, conflitante com a política vigente DOC-01.
