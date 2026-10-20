@@ -10,19 +10,10 @@ O fluxo documentado é o do chat em modo Agent do Cherry Studio 2.0.13, consulta
 
 ## 2. Diagrama de fluxo de dados
 
-```mermaid
-flowchart TD
-    A["Usuário digita a pergunta"] --> B["Cherry Studio aplica as instruções do assistente / prompt de sistema"]
-    B --> C["Base de Conhecimento pesquisa documentos indexados"]
-    C --> D["Recupera trechos (chunks)<br/>Busca descrita: palavras-chave (BM25) e/ou embeddings"]
-    D --> E["Pergunta + instruções + trechos recuperados<br/>Fronteira de confiança: conteúdo documental não confiável"]
-    E --> F["Envio pela internet à API externa do Google Gemini"]
-    F --> G["Gemini Flash-Lite Latest gera a resposta"]
-    G --> H["Cherry Studio exibe resposta e referências disponíveis"]
-    H --> I["Histórico local do aplicativo"]
-    H --> J["Equipe registra capturas/logs de teste sem credenciais"]
-    K["MCP e busca na web desativados no recorte"] -.-> F
-```
+
+<img width="1332" height="1295" alt="fluxograma-av2" src="https://github.com/user-attachments/assets/567dd91a-ffbf-4245-bb38-7d52e32a2fa6" />
+
+
 
 ## 3. Etapas e dados envolvidos
 
