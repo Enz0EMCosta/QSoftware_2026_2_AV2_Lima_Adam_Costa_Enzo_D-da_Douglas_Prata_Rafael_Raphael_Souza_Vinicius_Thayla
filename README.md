@@ -17,9 +17,7 @@ Este repositório contém os artefatos de avaliação de qualidade de software d
 
 ## 3. Vídeo da atividade
 - **URL da Apresentação Gravada:** [PREENCHER URL]
-- **Duração:** [PREENCHER DURAÇÃO - máx. 20 min]
-- **Data da Gravação:** [PREENCHER DATA]
-- **Participantes:** Adam Lima, Enzo Costa, Douglas D-da, Rafael Prata, Raphael, Vinicius Souza, Thayla
+- **Participantes:** Adam Lima, Enzo Emanuel Maia Costa, Douglas D-da, Rafael Prata, Raphael Portella, Vinicius Souza, Thayla Figueiredo
 
 ---
 
@@ -72,18 +70,19 @@ Este repositório contém os artefatos de avaliação de qualidade de software d
 │   ├── contribuicoes.md                       <- Tabela de contribuição individual de cada membro
 │   └── uso-de-ia.md                           <- Registro do uso de IA generativa no trabalho
 └── entrega/                                   <- Artefatos finais de entrega
-    ├── relatorio-tecnico.pdf                  <- Relatório técnico final consolidado
-    ├── apresentacao.pdf                       <- Slides da apresentação
-    └── VIDEO.md                               <- Metadados e links do vídeo da apresentação
+    ├── README.md                              <- Checklist dos arquivos finais pendentes
+    └── VIDEO.md                               <- Metadados; URL do vídeo ainda pendente
 ```
+
+Os cinco documentos da base de conhecimento que estavam na pasta externa `documentos/` foram incorporados e organizados em `base-de-conhecimento/`. O DOC-06 (README público do Cherry Studio) é citado no planejamento, mas ainda não faz parte do corpus versionado.
 
 ---
 
 ## 5. Integrantes da Equipe
 - Adam Lima
-- Enzo Costa
+- Enzo Emanuel Maia Costa
 - Douglas D-da
 - Rafael Prata
-- Raphael
+- Raphael Portella
 - Vinicius Souza
-- Thayla
+- Thayla Figueiredo

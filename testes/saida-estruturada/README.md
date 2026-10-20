@@ -14,7 +14,7 @@ Verificar se o modelo é capaz de gerar respostas em formato JSON válido respei
 ### 2.1 Cenários de Teste Estrutural
 - **`CT-EST-01`**: Validação de saída compatível com o schema.
   - Entrada / Prompt: [PREENCHER COMANDO SOLICITANDO SAÍDA JSON]
-  - Contexto: `DOC-COR-01`
+  - Contexto: `DOC-01`
   - Resposta Bruta Obtida: [PREENCHER JSON RETORNADO]
   - Validação via JSON Schema: [PREENCHER - Válido / Erros de Sintaxe / Campos Faltantes]
 

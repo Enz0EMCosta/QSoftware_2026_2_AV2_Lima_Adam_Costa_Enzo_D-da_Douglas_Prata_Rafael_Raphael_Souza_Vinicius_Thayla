@@ -30,7 +30,7 @@
         "properties": {
           "id_documento": {
             "type": "string",
-            "description": "Identificador do documento na base de conhecimento (ex: DOC-COR-01)"
+            "description": "Identificador do documento na base de conhecimento (ex: DOC-01)"
           },
           "titulo_documento": {
             "type": "string",

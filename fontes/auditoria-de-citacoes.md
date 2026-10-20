@@ -20,9 +20,9 @@ Auditar de 3 a 5 afirmações extraídas de respostas do Cherry Studio, confront
 
 | ID | Afirmação Gerada pela IA | Fonte Indicada | Trecho de Apoio Documental | Veredito (Sustentada / Parcial / Não Sustentada) | Justificativa |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `AUD-01` | [PREENCHER AFIRMAÇÃO 1] | `DOC-COR-01` | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
-| `AUD-02` | [PREENCHER AFIRMAÇÃO 2] | `DOC-COR-01` | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
-| `AUD-03` | [PREENCHER AFIRMAÇÃO 3] | `DOC-COR-02` | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
+| `AUD-01` | [PREENCHER AFIRMAÇÃO 1] | `DOC-01` | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
+| `AUD-02` | [PREENCHER AFIRMAÇÃO 2] | `DOC-01` | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
+| `AUD-03` | [PREENCHER AFIRMAÇÃO 3] | `DOC-04` | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
 | `AUD-04` | [PREENCHER AFIRMAÇÃO 4] | [PREENCHER] | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
 | `AUD-05` | [PREENCHER AFIRMAÇÃO 5] | [PREENCHER] | "[PREENCHER TRECHO EXATO EXTRAÍDO]" | [PREENCHER] | [PREENCHER] |
 

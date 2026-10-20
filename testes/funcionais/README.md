@@ -12,15 +12,15 @@ Verificar se o mecanismo de RAG recupera adequadamente os chunks corretos e gera
 ## 2. Análise do Artefato
 
 ### 2.1 Casos de Teste Detalhados
-- **`CT-FUNC-01`**: Recuperação simples a partir de um documento único (`DOC-COR-01`).
+- **`CT-FUNC-01`**: Recuperação simples a partir da política vigente (`DOC-01`).
   - Entrada: [PREENCHER]
   - Contexto: [PREENCHER]
   - Saída Observada: [PREENCHER]
-- **`CT-FUNC-02`**: Recuperação a partir de um segundo documento factual (`DOC-COR-02`).
+- **`CT-FUNC-02`**: Recuperação a partir do manual de garantia (`DOC-04`).
   - Entrada: [PREENCHER]
   - Contexto: [PREENCHER]
   - Saída Observada: [PREENCHER]
-- **`CT-FUNC-03`**: Recuperação agregada cruzando dois documentos (`DOC-COR-01` e `DOC-COR-02`).
+- **`CT-FUNC-03`**: Recuperação agregada cruzando a política e o manual (`DOC-01` e `DOC-04`).
   - Entrada: [PREENCHER]
   - Contexto: [PREENCHER]
   - Saída Observada: [PREENCHER]

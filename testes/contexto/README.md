@@ -12,11 +12,11 @@ Avaliar a capacidade do sistema RAG de lidar com ruído, recusa graciosa de resp
 ## 2. Análise do Artefato
 
 ### 2.1 Casos de Teste Detalhados
-- **`CT-CTX-01`**: Pressão com Documento Irrelevante (`DOC-IRR-01`).
+- **`CT-CTX-01`**: Pressão com Documento Irrelevante (`DOC-03`).
   - Entrada: [PREENCHER]
   - Contexto: [PREENCHER]
   - Saída Observada: [PREENCHER]
-- **`CT-CTX-02`**: Pressão com Documentos Conflitantes (`DOC-CON-01` vs. `DOC-COR-01`).
+- **`CT-CTX-02`**: Pressão com Documentos Conflitantes (`DOC-02` vs. `DOC-01`).
   - Entrada: [PREENCHER]
   - Contexto: [PREENCHER]
   - Saída Observada: [PREENCHER]
