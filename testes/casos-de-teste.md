@@ -1,6 +1,6 @@
 # Matriz Geral de Casos de Teste (AV2)
 
-> **Propósito:** Consolidar os dez testes registrados para avaliação da qualidade do fluxo de Base de Conhecimento (RAG) do Cherry Studio. Os resultados abaixo foram transcritos do arquivo `registro_testes_1_a_10.md`.
+> **Propósito:** Consolidar os dez testes registrados para avaliação da qualidade do fluxo de Base de Conhecimento (RAG) do Cherry Studio. 
 
 ---
 
