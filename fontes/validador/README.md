@@ -19,6 +19,8 @@ Prover procedimentos e scripts de validação para verificar a integridade estru
 
 ### 2.2 Exemplo de Script Validador em Python (`validador.py`)
 
+Para executar `jsonschema.validate`, o ambiente precisa ter a dependência `jsonschema` instalada. O exemplo abaixo é apenas uma referência de implementação; não há script executável nem resultado de execução versionado nesta pasta até o momento.
+
 ```python
 import json
 import jsonschema
@@ -50,6 +52,7 @@ if __name__ == "__main__":
 ---
 
 ## 3. Resultados
-- **Execuções do Validador Realizadas:** [PREENCHER]
-- **Taxa de Rejeição por Não Conformidade:** [PREENCHER %]
-- **Observações:** [PREENCHER]
+- **Execuções do validador automatizado realizadas:** não registradas. As três saídas do Cherry Studio foram comparadas manualmente com o schema.
+- **Resultado da inspeção manual:** CT-EST-02 conforme; CT-EST-03 não conforme por ausência de `citacoes`; CT-EST-04 não conforme por valor de `confianca` fora da enumeração e ausência de `citacoes`.
+- **Taxa observada na bateria complementar:** 1 de 3 saídas conformes (33,3%). Duas saídas foram intencionalmente solicitadas fora do schema; essa taxa não representa o desempenho espontâneo do modelo. O T10 do conjunto original é registrado separadamente como CT-EST-01.
+- **Observações:** erro sintático JSON e citação incompleta ainda não foram executados. Os detalhes e as evidências estão em `testes/saida-estruturada/README.md`.

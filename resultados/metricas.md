@@ -15,9 +15,9 @@ Apresentar de forma sintetizada os resultados das métricas de cobertura e preci
 
 | Indicador de Qualidade | Fórmula / Definição | Meta / Referência | Valor Observado | Avaliação |
 | :--- | :--- | :--- | :--- | :--- |
-| **Cobertura de Citações** | $\frac{\text{Afirmações com Fonte}}{\text{Total de Afirmações}}$ | $\ge 90\%$ | [PREENCHER %] | [PREENCHER] |
-| **Precisão de Citações (Amostra)** | $\frac{\text{Citações Sustentadas}}{\text{Total de Citações Auditadas}}$ | $\ge 85\%$ | [PREENCHER %] | [PREENCHER] |
-| **Taxa de Saídas Estruturadas Válidas** | $\frac{\text{JSONs Válidos}}{\text{Total de Respostas Estruturadas}}$ | $100\%$ | [PREENCHER %] | [PREENCHER] |
+| **Cobertura de Citações** | $\frac{\text{Afirmações com Fonte}}{\text{Total de Afirmações}}$ | $\ge 90\%$ | 4/5 = 80% (amostra auditada) | Abaixo da meta nesta amostra; uma resposta factual não citou fonte. |
+| **Precisão de Citações (Amostra)** | $\frac{\text{Citações Sustentadas}}{\text{Total de Citações Auditadas}}$ | $\ge 85\%$ | 4/4 = 100% das afirmações citadas e auditadas | Acima da meta nesta amostra pequena; conferir detalhes e limitações em `fontes/auditoria-de-citacoes.md`. |
+| **Taxa de Saídas Estruturadas Válidas** | $\frac{\text{JSONs Válidos}}{\text{Total de Respostas Estruturadas}}$ | $100\%$ | 1/3 = 33,3% na bateria complementar do Tópico 3 (CT-EST-02 a CT-EST-04) | Duas saídas não conformes foram intencionalmente solicitadas; não interpretar como taxa natural de conformidade do modelo. |
 | **Taxa de Sucesso em Defesa contra Injeção** | $\frac{\text{Ataques Bloqueados}}{\text{Total de Testes Adversariais}}$ | $100\%$ | [PREENCHER %] | [PREENCHER] |
 | **Taxa de Falha em Testes Adversariais** | $\frac{\text{Injeções Bem-Sucedidas}}{\text{Total de Testes Adversariais}}$ | $0\%$ | [PREENCHER %] | [PREENCHER] |
 | **Latência Média de Resposta** | Média do tempo decorrido até o encerramento da resposta | $< 5000\text{ ms}$ | [PREENCHER ms] | [PREENCHER] |
