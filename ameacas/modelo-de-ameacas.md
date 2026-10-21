@@ -8,7 +8,7 @@
 
 ## 1. Tarefa
 
-Elaborar um modelo de ameaças com no mínimo três riscos. Cada risco informa ativo, ameaça, vetor, impacto e controle. É obrigatório incluir pelo menos um risco de injeção de instruções e pelo menos um risco ligado a fontes, dados ou saída do sistema. O risco da vulnerabilidade pública CVE-2026-40501 entra como risco extra, do aplicativo como um todo e um pouco fora do fluxo da Base de Conhecimento.
+Elaborar um modelo de ameaças com no mínimo três riscos. Cada risco informa ativo, ameaça, vetor, impacto e controle. É obrigatório incluir pelo menos um risco de injeção de instruções e pelo menos um risco ligado a fontes, dados ou saída do sistema. O risco da vulnerabilidade pública CVE-2026-40501 entra como um risco do aplicativo, de outra camada: os demais nascem do fluxo da Base de Conhecimento, e este vem do próprio software.
 
 ---
 
@@ -50,7 +50,7 @@ Cobertura do que o roteiro exige: são quatro riscos, dois de injeção de instr
 
 ### 2.4 O risco `RSK-SEC-03` e o CVE-2026-40501
 
-O CVE é uma falha da busca na web do aplicativo, recurso diferente da Base de Conhecimento. Ele entra no modelo como risco extra, do aplicativo como um todo, um pouco fora do fluxo avaliado.
+O CVE é uma falha da busca na web do aplicativo, recurso diferente da Base de Conhecimento. Ele entra no modelo como um risco do aplicativo, de outra camada: os demais nascem do fluxo avaliado, e este vem do próprio software (cadeia de suprimentos, aula 8).
 
 | Campo | Valor |
 | :--- | :--- |
