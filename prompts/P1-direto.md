@@ -26,7 +26,7 @@ Qual é o prazo para desistir da compra?
 ---
 
 ## 3. Resultados
-- **Pergunta escolhida para as seis execuções:** Qual é o prazo para desistir da compra?
+- **Pergunta escolhida para as seis execuções:** "Qual é o prazo para desistir da compra?"
 - **Cenário com contexto correto:** selecionar na Base de Conhecimento somente o `DOC-01`.
 - **Cenário conflitante:** selecionar uma base com `DOC-01` e `DOC-02`.
 - **Importante:** manter a pergunta e as demais configurações do Cherry Studio iguais nas seis execuções. O contexto deve ser fornecido pela Base de Conhecimento selecionada no aplicativo, não copiado manualmente para o prompt.
