@@ -16,7 +16,7 @@ Este repositório contém os artefatos de avaliação de qualidade de software d
 ---
 
 ## 3. Vídeo da atividade
-- **URL da Apresentação Gravada:** [PREENCHER URL]
+- **URL da Apresentação Gravada:** https://drive.google.com/file/d/146_GnkRva0c2Lpl8X4sde2afqYLdvGgj/view?usp=drive_link
 - **Participantes:** Adam Lima, Enzo Emanuel Maia Costa, Douglas D-da, Rafael Prata, Raphael Portella, Vinicius Souza, Thayla Figueiredo
 
 ---
