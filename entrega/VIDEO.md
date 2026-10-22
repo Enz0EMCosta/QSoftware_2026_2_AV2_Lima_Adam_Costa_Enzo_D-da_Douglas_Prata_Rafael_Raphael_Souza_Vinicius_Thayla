@@ -6,6 +6,7 @@
 - **Título do Trabalho:** AV2 — Missão Contexto Confiável: Avaliação de RAG e Defesa contra Prompt Injection no Cherry Studio
 - **Disciplina:** Qualidade de Software — UFS (2026.2)
 - **Equipe:** Equipe 04
+- **URL da Apresentação Gravada:** https://drive.google.com/file/d/146_GnkRva0c2Lpl8X4sde2afqYLdvGgj/view?usp=drive_link
 
 ---
 
